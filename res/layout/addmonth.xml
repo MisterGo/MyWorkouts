@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addMonthText1"
+            android:id="@+id/addMonthText1" android:layout_gravity="center" android:textSize="20dp"/>
+    <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addMonthDate" android:layout_gravity="center" android:longClickable="false"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addMonthText2"
+            android:id="@+id/addMonthText2" android:layout_gravity="center" android:textSize="20dp"/>
+    <EditText
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/addMonthCost" android:layout_gravity="center" android:inputType="number"
+            android:gravity="right"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addMonthButton"
+            android:id="@+id/addMonthSaveButton" android:layout_gravity="center"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/temporaryText" android:autoText="false" android:textSize="10dp"/>
+</LinearLayout>

@@ -73,14 +73,21 @@ public class WOListActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(1, 1, 1, R.string.menu_add_workout);
+        menu.add(1, 1, 1, R.string.label_settings);
+        menu.add(1, 1, 2, "Summary");
         return super.onCreateOptionsMenu(menu);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(this, PutEventActivity.class);
-        startActivity(intent);
+        Log.d(Global.ML, Integer.toString(item.getOrder()));
+        if (item.getOrder() == 1) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        } else {
+            //Intent intent = new Intent(this, SettingsActivity.class);
+            //startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);    //To change body of overridden methods use File | Settings | File Templates.
     }
 

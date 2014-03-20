@@ -17,6 +17,9 @@
     <string name="label_months_list">Месяцы</string>
     <string name="label_workout">Тренировка</string>
 
+    <string name="settings_list_months">Месяцы (стоимость)</string>
+    <string name="settings_list_peoples">Люди</string>
+
     <string name="menu_add_people">Добавить игрока</string>
     <string name="menu_add_workout">Добавить тренировку</string>
 

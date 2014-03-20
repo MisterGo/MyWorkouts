@@ -15,7 +15,10 @@
         <activity android:name=".WOListActivity" />
         <activity android:name=".PutEventActivity" android:label="@string/label_put_event"/>
         <activity android:name=".SettingsActivity" android:label="@string/label_settings"/>
-
+        <activity android:name=".MyPeoplesActivity" android:label="@string/label_peoples"/>
+        <activity android:name=".AddMyPeoples" android:label="@string/label_add_people"/>
+        <activity android:name=".AddMonthActivity" android:label="@string/label_add_month"/>
+        <activity android:name=".ListOfMonthsActivity" android:label="@string/label_months_list"/>
 
     </application>
 </manifest> 
