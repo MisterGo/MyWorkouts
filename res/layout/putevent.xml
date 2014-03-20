@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="@color/layout_background">
+
+    <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/putEvent_datePicker"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"/>
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/putEvent_workout"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/putEvent_datePicker"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_save"
+            android:gravity="center"
+            android:id="@+id/putEvent_button"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/button_background"
+            android:textSize="25sp"
+            android:textColor="@color/button_text"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"/>
+
+</RelativeLayout>

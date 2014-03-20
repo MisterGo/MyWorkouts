@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="blank">Blank</string>
+
+    <string name="long_text_main">Это главный экран приложения.\n\n Пока что я не знаю, что сюда написать, но обязательно придумаю что-нибудь остроумное</string>
+    <string name="button_main">Погнали!</string>
+    <string name="button_add_workout">Добавить тренировку</string>
+    <string name="button_save">Сохранить</string>
+
+    <string name="app_name">MyWorkouts</string>
+    <string name="label_settings">Настройки</string>
+    <string name="label_put_event">Ввод тренировки</string>
+    <string name="label_workouts_list">Список тренировок</string>
+    <string name="label_peoples">Люди</string>
+    <string name="label_add_people">Добавить спортсмена</string>
+    <string name="label_add_month">Добавить месяц</string>
+    <string name="label_months_list">Месяцы</string>
+    <string name="label_workout">Тренировка</string>
+
+    <string name="menu_add_people">Добавить игрока</string>
+    <string name="menu_add_workout">Добавить тренировку</string>
+
+    <string name="helloworld">Hello, WORLD!</string>
+    <string name="addMonthText1">Выберите месяц</string>
+    <string name="addMonthText2">Полная стоимость месяца</string>
+    <string name="addMonthButton">Сохранить</string>
+    <string name="lowSomeText">чел</string>
+
+    <color name="layout_background">#ffffff</color>
+    <color name="layout_text">#0393ff</color>
+    <color name="button_background">#0393ff</color>
+    <color name="button_text">#ffffff</color>
+</resources>
