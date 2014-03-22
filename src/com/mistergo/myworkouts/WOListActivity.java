@@ -85,8 +85,8 @@ public class WOListActivity extends Activity {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         } else {
-            //Intent intent = new Intent(this, SettingsActivity.class);
-            //startActivity(intent);
+            Intent intent = new Intent(this, SummaryListActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);    //To change body of overridden methods use File | Settings | File Templates.
     }

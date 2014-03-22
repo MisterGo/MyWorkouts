@@ -19,6 +19,7 @@
         <activity android:name=".AddMyPeoples" android:label="@string/label_add_people"/>
         <activity android:name=".AddMonthActivity" android:label="@string/label_add_month"/>
         <activity android:name=".ListOfMonthsActivity" android:label="@string/label_months_list"/>
+        <activity android:name=".SummaryListActivity" android:label="@string/label_summary_list"/>
 
     </application>
 </manifest> 

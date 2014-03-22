@@ -44,7 +44,7 @@ public class PutEventActivity extends Activity {
         if (mDay != -1) {
 //            picker.init(2013, 11, 20, lPicker);
             Toast.makeText(myActivity, "Date changed!" + mDay + "/" + mMonth + "/" + mYear, Toast.LENGTH_SHORT).show();
-            picker.init(mYear, mMonth - 1, mDay, lPicker);
+            picker.init(mYear, mMonth, mDay, lPicker);
             refreshList();
         }
 //        btn.setOnClickListener(btnLs);
