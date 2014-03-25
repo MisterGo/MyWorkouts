@@ -31,7 +31,6 @@ public class AddMyPeoples extends Activity {
             }
         };
         btn.setOnClickListener(btnLs);
-        //this.finish();
     }
 
 }

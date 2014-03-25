@@ -9,9 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-/**
- * Created by mistergo on 21.03.14.
- */
 public class SummaryListActivity extends Activity {
     final Activity myActivity = this;
     ListView myListView;
@@ -41,7 +38,7 @@ public class SummaryListActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(1, 1, 1, R.string.label_settings);
-        menu.add(1, 1, 2, "Summary");
+        //menu.add(1, 1, 2, "Summary");
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -51,9 +48,9 @@ public class SummaryListActivity extends Activity {
         if (item.getOrder() == 1) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
-        } else {
-            Intent intent = new Intent(this, SummaryListActivity.class);
-            startActivity(intent);
+        //} else {
+        //    Intent intent = new Intent(this, SummaryListActivity.class);
+        //    startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

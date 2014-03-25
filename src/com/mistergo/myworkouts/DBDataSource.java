@@ -24,7 +24,7 @@ public class DBDataSource {
 
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
-        database.delete("myWorkouts", null, null);
+        //database.delete("myWorkouts", null, null);
         //dbHelper.onUpgrade(database, 0, 0);
         //dbHelper.onCreate(database);
         /*
@@ -133,8 +133,12 @@ public class DBDataSource {
     }
 
     public Cursor getListOfWorkouts() {    //(String[] pColumns, String pWhere, String pGrouping) {
-        String colArr[] = {"date", "count(*)"};
-        return database.query("myWorkouts", colArr, null, null, "date", null, null);
+        //String colArr[] = {"date", "count(*)"};
+        //return database.query("myWorkouts", colArr, null, null, "date", null, null);
+        return database.rawQuery("select date, count(*)" +
+                "                   from myWorkouts" +
+                "                   group by date"
+                , null);
     }
 
     public Cursor getPeoplesForWorkout(String d, String m, String y) {
@@ -155,15 +159,41 @@ public class DBDataSource {
         //return  database.query("myWorkouts", columns, null, null, null, null, null);
     }
 
-    public void insertWorkout(int pId, String pDate) {
-        String[] columns = {"date", "peopleId"};
-        String where = "peopleId = " + pId; //"date = " + pDate + " and peopleId = " + pId;
-        Log.d(Global.ML, ">>>>> Cursor WHERE is " + where + ", cols = " + columns.toString());
-        Cursor cursor = database.query("myWorkouts", columns, where, null, null, null, null);
+    public Cursor getPeoplesForWorkoutNew(int d, int m, int y) {
+        //String[] columns = {"MP.name", "select count(*) from "};
+        //String tables = "myPeople as MP left outer join ";
+        //String selection = "";
+        //Log.d(Global.ML, "getPeoplesForWorkoutNew: " + String.format("%02d", d) + "/" + String.format("%02d", m) + "/" + y);
+        return database.rawQuery("select MP._id, MP.name, " +
+                "                       (select count(*) " +
+                "                       from myWorkouts MV " +
+                "                       where MV.date = '" + String.format("%02d", d) + "/" + String.format("%02d", m) + "/" + y + "'" +
+                "                       and MV.peopleId = MP._id" +
+                "                       limit 1" +
+                "                       )" +
+                "               from myPeople MP" +
+                "               where MP.actual = 1", null);
+
+    }
+
+    public void insertWorkout(String pId, String pDate) {
+        //String[] columns = {"date", "peopleId"};
+        //String where = "peopleId = " + pId; //"date = " + pDate + " and peopleId = " + pId;
+        //Log.d(Global.ML, ">>>>> Cursor WHERE is " + where + ", cols = " + columns.toString());
+        //Cursor cursor = database.query("myWorkouts", columns, where, null, null, null, null);
+        Cursor cursor = database.rawQuery("select date, peopleId" +
+                "                           from myWorkouts" +
+                "                           where date = '" + pDate + "' and peopleId = " + pId
+                , null);
         Log.d(Global.ML, ">>>>> Cursor count = " + cursor.getCount());
-        if (cursor.getCount() > 0) {
-            return;
-        } else {
+        if (!(cursor.getCount() > 0)) {
+            Log.d(Global.ML, ">>>>> Inserting: (" + pId + ", '" + pDate + "')");
+            /*
+            database.rawQuery("insert into myWorkouts" +
+                    "           (peopleId, date)" +
+                    "           values (" + pId + ", '" + pDate + "')"
+                    , null);
+*/
             ContentValues values = new ContentValues();
             values.put("peopleId", pId);
             values.put("date", pDate);
@@ -173,5 +203,9 @@ public class DBDataSource {
 
     public void deleteWorkout(int pId) {
         database.delete("myWorkouts", "_id = " + pId, null);
+    }
+
+    public void deleteWorkoutsByDate(String date) {
+        database.delete("myWorkouts", "date = '" + date + "'", null);
     }
 }

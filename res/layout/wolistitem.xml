@@ -10,7 +10,7 @@
             android:id="@+id/woListItemLeft"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:textColor="@color/layout_text"/>
     <TextView
             android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
             android:id="@+id/woListItemRight"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@id/woListItemLeft"
-            android:textSize="25sp"
+            android:textSize="30sp"
             android:singleLine="false"
             android:textColor="@color/layout_text"/>
 </RelativeLayout>

@@ -3,8 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:background="@color/layout_background">
-
+                android:layout_height="match_parent"
+                android:background="@color/layout_background">
     <DatePicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/putEvent_workout"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/putEvent_datePicker"/>
+            android:layout_below="@+id/putEvent_datePicker"
+            android:paddingBottom="40sp"/>
     <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -29,6 +30,6 @@
             android:textSize="25sp"
             android:textColor="@color/button_text"
             android:paddingTop="5sp"
-            android:paddingBottom="5sp"/>
-
+            android:paddingBottom="5sp"
+            android:layout_above="@id/putEvent_workout"/>
 </RelativeLayout>

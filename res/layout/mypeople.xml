@@ -9,14 +9,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="label"
-            android:textSize="30px"
-            android:id="@+id/mypeoplelabel" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+            android:textSize="30sp"
+            android:id="@+id/myPeopleLabel" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
             android:clickable="false"/>
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mypeoplecheckbox"
-            android:layout_marginRight="10px"
-            android:layout_alignParentRight="true" android:layout_alignTop="@+id/mypeoplelabel"
+            android:id="@+id/myPeopleCheckbox"
+            android:layout_marginRight="10sp"
+            android:layout_alignParentRight="true" android:layout_alignTop="@id/myPeopleLabel"
             android:checked="false" android:focusable="false"/>
 </RelativeLayout>

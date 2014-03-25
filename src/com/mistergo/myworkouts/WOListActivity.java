@@ -44,6 +44,12 @@ public class WOListActivity extends Activity {
         refreshList();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        refreshList();
+    }
+
     private void refreshList() {
         ArrayList<Map<String, String>> myList = new ArrayList<Map<String, String>>();
         Map<String, String> m;
@@ -74,7 +80,7 @@ public class WOListActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(1, 1, 1, R.string.label_settings);
-        menu.add(1, 1, 2, "Summary");
+        menu.add(1, 1, 2, R.string.label_summary_list);
         return super.onCreateOptionsMenu(menu);    //To change body of overridden methods use File | Settings | File Templates.
     }
 

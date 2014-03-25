@@ -58,30 +58,6 @@ public class AddMonthActivity extends Activity {
         findAndHideField(datePicker, "mDaySpinner");
         findAndHideField(datePicker, "mDayPicker");
 
-        /*
-        try {
-            Field f[] = datePicker.getClass().getDeclaredFields();
-            String ss = "~";
-            for (Field field : f) {
-                //Log.d(ML, "--FIELD: " + field.getName());
-                ss = ss + field.getName() + "; ";
-                if (field.getName().equals("mDaySpinner") || (field.getName().equals("mDayPicker"))) {
-                    field.setAccessible(true);
-                    Object dayPicker = new Object();
-                    dayPicker = field.get(datePicker);
-                    ((View) dayPicker).setVisibility(View.GONE);
-                }
-            }
-            tv.setText(ss);
-        } catch (SecurityException e) {
-            Log.d(ML, "----SECURITY EXCEPTION---- : " + e.getMessage());
-        } catch (IllegalArgumentException e) {
-            Log.d(ML, "----ILLEGAL ARGUMENTS EXCEPTION---- : " + e.getMessage());
-        } catch (IllegalAccessException e) {
-            Log.d(ML, "----ILLEGAL ACCESS EXCEPTION---- : " + e.getMessage());
-        }
-        */
-
         View.OnClickListener lBtn = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
