@@ -9,17 +9,16 @@ import android.widget.TextView;
 
 public abstract class TwoLineArrayAdapter<T> extends ArrayAdapter<T> {
     private int mListItemLayoutResId;
+    Context context;
 
     public TwoLineArrayAdapter(Context context, T[] ts) {
         this(context, android.R.layout.two_line_list_item, ts);
     }
 
-    public TwoLineArrayAdapter(
-            Context context,
-            int listItemLayoutResourceId,
-            T[] ts) {
+    public TwoLineArrayAdapter(Context context, int listItemLayoutResourceId, T[] ts) {
         super(context, listItemLayoutResourceId, ts);
         mListItemLayoutResId = listItemLayoutResourceId;
+        this.context = context;
     }
 
     @Override
@@ -49,6 +48,9 @@ public abstract class TwoLineArrayAdapter<T> extends ArrayAdapter<T> {
         T t = (T)getItem(position);
         lineOneView.setText(lineOneText(t));
         lineTwoView.setText(lineTwoText(t));
+
+        lineOneView.setTextColor(context.getResources().getColor(R.color.layout_text));
+        lineTwoView.setTextColor(context.getResources().getColor(R.color.layout_text));
 
         return listItemView;
     }

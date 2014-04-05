@@ -97,11 +97,11 @@ public class PutEventActivity extends Activity {
         @Override
         public void onClick(View view) {
             SparseBooleanArray checked = myListView.getCheckedItemPositions();
-            Log.d(Global.ML, "checked.size = " + checked.size());
+            Global.myLog("checked.size = " + checked.size());
             //ArrayList<Map<String, String>> selectedItems = new ArrayList<Map<String, String>>();
             for (int i=0; i<checked.size(); i++) {
                 int pos = checked.keyAt(i);
-                Log.d(Global.ML, "  pos = " + pos + ", valueat = " + checked.valueAt(i));
+                Global.myLog("  pos = " + pos + ", valueat = " + checked.valueAt(i));
                 if (checked.valueAt(i)) {
                     //Log.d(Global.ML, "  selectedItems.add" + adapter.getItem(pos));
                     selectedItems.add(adapter.getItem(pos));
@@ -114,10 +114,8 @@ public class PutEventActivity extends Activity {
             /** таким образом можно и очистить текущую дату */
             Global.dataSource.deleteWorkoutsByDate(pDate);
 
-//            Log.d(Global.ML, "---- pDate = " + pDate);
             for (int i=0; i<selectedItems.size(); i++) {
                 Map<String, String> mm = selectedItems.get(i);
-                Log.d(Global.ML, "----" + mm.toString());
                 Global.dataSource.insertWorkout(mm.get("id"), pDate);
             }
             myActivity.finish();
@@ -128,7 +126,6 @@ public class PutEventActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);    //To change body of overridden methods use File | Settings | File Templates.
         if (requestCode == 1) {
-            //Log.d(Global.ML, "requestCode = " + requestCode);
             finish();
         }
     }

@@ -33,10 +33,8 @@ public class ListOfMonthsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final Activity myActivity = this;
-        Log.d(Global.ML, "SetContentView");
         this.setContentView(R.layout.listofmonths);
 
-        Log.d(Global.ML, "Try to get myListView");
         myListView = (ListView) findViewById(R.id.myListOfMonths);
         /*
         TextView mv = (TextView) findViewById(R.id.listOfMonthsMonthText);
@@ -44,20 +42,11 @@ public class ListOfMonthsActivity extends Activity {
         Log.d(ML, "-- ms = " + ms + ", formatted");
         //mv.setText(String.format("%02d", ms));
         */
-        Log.d(Global.ML, "new DBDataSource(this)");
-        //dataSource = new DBDataSource(this);
-        //dataSource.open();
-        Log.d(Global.ML, "new cursor");
         cursor = Global.dataSource.getMyMonth(null, null);
-        //startManagingCursor(cursor);
 
-        Log.d(Global.ML, "Get Adapter");
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.monthcost, cursor, strFrom, strTo);
 
-
-        Log.d(Global.ML, "setListAdapter");
         myListView.setAdapter(adapter);
-        //setListAdapter(adapter);
 
         myListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -111,7 +100,7 @@ public class ListOfMonthsActivity extends Activity {
 
             public void onClick(DialogInterface dialog, int which) {
                 Global.dataSource.deleteMyMonth(m);
-                Log.d(Global.ML, "Deleted item: " + m.getMonth());
+                Global.myLog("Deleted item: " + m.getMonth());
                 dialog.dismiss();
                 cursor.requery();
             }

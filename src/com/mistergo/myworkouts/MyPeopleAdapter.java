@@ -50,8 +50,6 @@ public class MyPeopleAdapter extends BaseAdapter {
 
         final MyPeople people = (MyPeople)getItem(position);
         ((TextView) view.findViewById(R.id.myPeopleLabel)).setText((people.getName().equals("")) ? "null name" : people.getName());
-        //view.setId(people.getId());
-        //Log.d("myLogs", "View ID = " + view.getId());
         CheckBox cb = (CheckBox) view.findViewById(R.id.myPeopleCheckbox);
         cb.setOnCheckedChangeListener(myCheck);
         cb.setTag(position);

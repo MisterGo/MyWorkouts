@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import com.mistergo.myworkouts.Global;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class DBDataSource {
     private SQLiteDatabase database;
@@ -201,9 +203,9 @@ public class DBDataSource {
                 "                           from myWorkouts" +
                 "                           where date = '" + pDate + "' and peopleId = " + pId
                 , null);
-        Log.d(Global.ML, ">>>>> Cursor count = " + cursor.getCount());
+        Global.myLog(">>>>> Cursor count = " + cursor.getCount());
         if (!(cursor.getCount() > 0)) {
-            Log.d(Global.ML, ">>>>> Inserting: (" + pId + ", '" + pDate + "')");
+            Global.myLog(">>>>> Inserting: (" + pId + ", '" + pDate + "')");
             /*
             database.rawQuery("insert into myWorkouts" +
                     "           (peopleId, date)" +

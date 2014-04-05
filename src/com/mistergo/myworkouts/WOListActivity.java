@@ -54,11 +54,6 @@ public class WOListActivity extends Activity {
         ArrayList<Map<String, String>> myList = new ArrayList<Map<String, String>>();
         Map<String, String> m;
 
-//        ArrayAdapter.createFromResource()
-
-        //dataSource = new DBDataSource(this);
-        //dataSource.open();
-        Log.d(Global.ML, "ListOfWorkoutsActivity: new cursor");
         cursor = Global.dataSource.getListOfWorkouts();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -66,14 +61,10 @@ public class WOListActivity extends Activity {
             m.put("date", cursor.getString(0));
             m.put("count", cursor.getString(1));
             myList.add(m);
-            Log.d(Global.ML, "ListOfWorkoutsActivity: date = " + m.get("date") + ", count = " + m.get("count"));
             cursor.moveToNext();
         }
 
-        Log.d(Global.ML, "ListOfWorkoutsActivity: Get Adapter");
         SimpleAdapter adapter = new SimpleAdapter(this, myList, R.layout.wolistitem, strFrom, strTo);
-
-        Log.d(Global.ML, "ListOfWorkoutsActivity: setListAdapter");
         myListView.setAdapter(adapter);
     }
 
@@ -86,7 +77,6 @@ public class WOListActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(Global.ML, Integer.toString(item.getOrder()));
         if (item.getOrder() == 1) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
