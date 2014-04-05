@@ -132,12 +132,28 @@ public class DBDataSource {
         return database.query("myMonthCost", pColumns, pWhere, null, null, null, null);
     }
 
+    public Cursor getMyMonthsSummary() {
+        return database.rawQuery("select substr(M.date, 4, 2), substr(M.date, 7) " +
+                "                   from myWorkouts M" +
+                "                   group by substr(M.date, 4, 2), substr(M.date, 7)" +
+                "                   order by substr(M.date, 7) desc, substr(M.date, 4, 2) desc"
+                , null);
+    }
+
+    public Cursor getMonthHours(String m) {
+        return database.rawQuery("select count(*)" +
+                "                   from myWorkouts M" +
+                "                   where substr(M.date, 4, 2) = '" + m + "'"//String.format("%02d", m)
+                , null);
+    }
+
     public Cursor getListOfWorkouts() {    //(String[] pColumns, String pWhere, String pGrouping) {
         //String colArr[] = {"date", "count(*)"};
         //return database.query("myWorkouts", colArr, null, null, "date", null, null);
         return database.rawQuery("select date, count(*)" +
                 "                   from myWorkouts" +
-                "                   group by date"
+                "                   group by date" +
+                "                   order by substr(date, 7) desc, substr(date, 4, 2) desc, substr(date, 1, 2) desc"
                 , null);
     }
 

@@ -30,6 +30,9 @@
     <string name="addMonthButton">Сохранить</string>
     <string name="lowSomeText">чел</string>
 
+    <string name="summary_text1">Всего часов</string>
+    <string name="summary_text2">Цена месяца</string>
+
     <color name="layout_background">#ffffff</color>
     <color name="layout_text">#0393ff</color>
     <color name="button_background">#0393ff</color>

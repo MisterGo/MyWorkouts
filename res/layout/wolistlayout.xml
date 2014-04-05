@@ -27,7 +27,6 @@
             android:smoothScrollbar="false"
             android:stackFromBottom="false"
             android:textFilterEnabled="false"
-            android:divider="#ff0707"
             android:dividerHeight="2sp"
             />
 </LinearLayout>

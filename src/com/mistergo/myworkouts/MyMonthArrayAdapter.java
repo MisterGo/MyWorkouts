@@ -8,12 +8,12 @@ import android.content.Context;
 public class MyMonthArrayAdapter extends TwoLineArrayAdapter<MyMonth> {
 
     public MyMonthArrayAdapter(Context context, MyMonth[] myMonths) {
-        super(context, myMonths);
+                super(context, myMonths);
     }
 
     @Override
     public String lineOneText(MyMonth myMonth) {
-        return Integer.toString(myMonth.getMonth());
+        return Integer.toString(myMonth.getMonth()) + "/" + Integer.toString(myMonth.getYear());
     }
 
     @Override

@@ -22,16 +22,20 @@ public class SummaryListActivity extends Activity {
     }
 
     private void RefreshList() {
-        Cursor cursor = Global.dataSource.getMyMonth(null, null);
-        MyMonth[] summaryList = new MyMonth[cursor.getCount()];
+        //Cursor cursor = Global.dataSource.getMyMonth(null, null);
+        Cursor cursor = Global.dataSource.getMyMonthsSummary();
+        //MyMonth[] summaryList = new MyMonth[cursor.getCount()];
+        String[] summaryList = new String[cursor.getCount()];
         Log.d(Global.ML, "Count = " + cursor.getCount());
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             Log.d(Global.ML, "IDX = " + cursor.getPosition() + ", ID = " + cursor.getInt(0) + ", LENGTH = " + summaryList.length);
-            summaryList[cursor.getPosition()] = new MyMonth(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getFloat(3));
+            //summaryList[cursor.getPosition()] = new MyMonth(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getFloat(3));
+            summaryList[cursor.getPosition()] = cursor.getString(0) + "/" + cursor.getString(1);
             cursor.moveToNext();
         }
-        myListView.setAdapter(new MyMonthArrayAdapter(this, summaryList));
+        //myListView.setAdapter(new MyMonthArrayAdapter(this, summaryList));
+        myListView.setAdapter(new SummaryAdapter(this, summaryList));
 
     }
 
